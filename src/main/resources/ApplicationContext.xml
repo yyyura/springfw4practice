@@ -7,31 +7,20 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- sozdajetsja Object(Bean) musiki - mozhno menjat Rock ili Klassik prjamo zdesj-->
-    <!-- No Re-Compiling needed, no code Change needed -->
-    <!-- Compiling is the transformation from Source Code (human readable) into machine code (computer executable).-->
+    <!-- lesson 6c - using musicPlayer.properties with key=value -->
+    <!-- importing this file in appContext-->
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+
     <bean id="musicBean" class="ie.yyyura.springfw.MusicRock"/>
 
-    <!-- lesson 6 setter-->
-    <!-- Error "No matching constructor found" - Spring pitaetsja ispolzovat pustoj konstruktor
-    - no ego net, tak kak Mi sozdali svoj konstructor i Spring udalil svoj pustoj konstruktor.
-    Sozdajom pustoj konstruktor vruchnuju - Spring ispolzujet pustoj konstruktor dlja sozdanija ojekta
-    i pri pomoshi settera naznachaet zavisimost  -->
     <bean id="playerBean" class="ie.yyyura.springfw.Player">
-        <!-- 1. name of the setter in Player, 2. ssilka (ref) no tot Bean cotorij mi hotim ispolzovat v kachestve zavisimosti -->
         <property name="musicSetter" ref="musicBean"/>
 
-        <!-- L6b prostie znachenija   -->
-        <!-- Spring videt method setName-->
-        <property name="name" value="My Player"/>
-        <property name="volume" value="50"/>
+        <!-- ${} we can get value by key-->
+        <property name="name" value="${player.name}"/>
+        <property name="volume" value="${player.volume}"/>
 
     </bean>
-
-    <!-- lesson 5 constructor-->
-    <!--    <bean id="playerBean" class="ie.yyyura.springfw.Player">-->
-    <!--        <constructor-arg ref="musicBean"/>-->
-    <!--    </bean>-->
 
 </beans>
 
