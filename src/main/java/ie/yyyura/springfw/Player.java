@@ -4,6 +4,26 @@ public class Player {
 
     private MusicInterface mi;
 
+    // L6b - vnedrit prostoe znachenije
+    private String name;
+    private int volume;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getVolume() {
+        return volume;
+    }
+
+    public void setVolume(int volume) {
+        this.volume = volume;
+    }
+
     // lesson 5 - IoC - dependency injection using Constructor
     public Player(MusicInterface mi) {
         this.mi = mi;
@@ -23,4 +43,3 @@ public class Player {
         System.out.println("Playing " + mi.getSong());
     }
 }
-   

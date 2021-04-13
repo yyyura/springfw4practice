@@ -14,10 +14,13 @@ public class TestPlayer {
         // we got Bean from Spring context mi, and injected in Player
         // Not needed -- Player player = new Player(mi);
 
-        // lesson 5
+        // lesson 5, 6
         Player player = context.getBean("playerBean", Player.class);
 
         player.play();
+
+        System.out.println(player.getName());
+        System.out.println(player.getVolume());
 
         context.close();
     }

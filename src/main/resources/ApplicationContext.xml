@@ -20,6 +20,12 @@
     <bean id="playerBean" class="ie.yyyura.springfw.Player">
         <!-- 1. name of the setter in Player, 2. ssilka (ref) no tot Bean cotorij mi hotim ispolzovat v kachestve zavisimosti -->
         <property name="musicSetter" ref="musicBean"/>
+
+        <!-- L6b prostie znachenija   -->
+        <!-- Spring videt method setName-->
+        <property name="name" value="My Player"/>
+        <property name="volume" value="50"/>
+
     </bean>
 
     <!-- lesson 5 constructor-->
