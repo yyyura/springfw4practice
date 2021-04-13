@@ -10,12 +10,22 @@
     <!-- sozdajetsja Object(Bean) musiki - mozhno menjat Rock ili Klassik prjamo zdesj-->
     <!-- No Re-Compiling needed, no code Change needed -->
     <!-- Compiling is the transformation from Source Code (human readable) into machine code (computer executable).-->
-    <bean id="musicBean" class="ie.yyyura.springfw.MusicRock"></bean>
+    <bean id="musicBean" class="ie.yyyura.springfw.MusicRock"/>
 
-    <!-- lesson 5-->
+    <!-- lesson 6 setter-->
+    <!-- Error "No matching constructor found" - Spring pitaetsja ispolzovat pustoj konstruktor
+    - no ego net, tak kak Mi sozdali svoj konstructor i Spring udalil svoj pustoj konstruktor.
+    Sozdajom pustoj konstruktor vruchnuju - Spring ispolzujet pustoj konstruktor dlja sozdanija ojekta
+    i pri pomoshi settera naznachaet zavisimost  -->
     <bean id="playerBean" class="ie.yyyura.springfw.Player">
-        <constructor-arg ref="musicBean"/>
+        <!-- 1. name of the setter in Player, 2. ssilka (ref) no tot Bean cotorij mi hotim ispolzovat v kachestve zavisimosti -->
+        <property name="musicSetter" ref="musicBean"/>
     </bean>
+
+    <!-- lesson 5 constructor-->
+    <!--    <bean id="playerBean" class="ie.yyyura.springfw.Player">-->
+    <!--        <constructor-arg ref="musicBean"/>-->
+    <!--    </bean>-->
 
 </beans>
 
