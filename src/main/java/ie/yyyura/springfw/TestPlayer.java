@@ -7,20 +7,17 @@ public class TestPlayer {
 
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
 
-        // lesson 4
-        // from Spring Context we get "some" object(Bean) which implements MusicInterface (could be Classical or Rock)
-        // Not needed -- MusicInterface mi = context.getBean("musicBean", MusicInterface.class);
-        // lesson 4 - dependency injection manually
-        // we got Bean from Spring context mi, and injected in Player
-        // Not needed -- Player player = new Player(mi);
+        // lesson 7:
+        Player player1 = context.getBean("playerBean", Player.class);
+        Player player2 = context.getBean("playerBean", Player.class);
 
-        // lesson 5, 6
-        Player player = context.getBean("playerBean", Player.class);
+        boolean isPointingToTheSameObject = player1 == player2;
+        System.out.println("Pointing To The Same Object " + isPointingToTheSameObject);
 
-        player.play();
-
-        System.out.println(player.getName());
-        System.out.println(player.getVolume());
+//        player1.play();
+//
+//        System.out.println(player1.getName());
+//        System.out.println(player1.getVolume());
 
         context.close();
     }
